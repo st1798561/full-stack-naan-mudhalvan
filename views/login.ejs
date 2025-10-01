@@ -1,0 +1,220 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login — Your App</title>
+  <meta name="description" content="Secure sign in to Your App" />
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --muted:#9aa6b2;
+      --accent:#6366f1;
+      --accent-2:#06b6d4;
+      --glass: rgba(255,255,255,0.04);
+      --success:#10b981;
+      --danger:#ef4444;
+      --radius:14px;
+      --max-width:420px;
+      --shadow: 0 6px 30px rgba(2,6,23,0.6);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background: radial-gradient(1200px 600px at 10% 10%, rgba(99,102,241,0.08), transparent),
+              linear-gradient(180deg, var(--bg), #071026 120%);
+  color:#e6eef6;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:32px;
+}
+
+.container{
+  width:100%;
+  max-width:var(--max-width);
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:28px;
+  border:1px solid rgba(255,255,255,0.04);
+  backdrop-filter: blur(6px);
+}
+
+.header{display:flex;gap:14px;align-items:center;margin-bottom:18px;}
+.logo{width:56px;height:56px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent),var(--accent-2));flex:0 0 56px;box-shadow:0 6px 18px rgba(99,102,241,0.12);}
+.logo svg{width:34px;height:34px;opacity:0.98}
+.brand{line-height:1}
+.brand h1{font-size:18px;margin:0;font-weight:600}
+.brand p{margin:0;font-size:13px;color:var(--muted)}
+
+form{display:grid;gap:12px}
+
+label{font-size:13px;color:var(--muted);display:block;margin-bottom:6px}
+.field{display:flex;flex-direction:column;gap:6px}
+input[type="email"], input[type="password"]{width:100%;padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;outline:none;font-size:15px;transition:box-shadow .12s, border-color .12s;}
+input:focus{box-shadow:0 6px 18px rgba(99,102,241,0.06);border-color:rgba(99,102,241,0.18)}
+
+.password-row{display:flex;align-items:center;gap:10px}
+.pw-toggle{background:transparent;border:none;color:var(--muted);cursor:pointer;padding:8px;border-radius:8px}
+.muted-line{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--muted);}
+
+.row{display:flex;gap:12px;align-items:center}
+.checkbox{display:flex;gap:8px;align-items:center}
+.checkbox input{width:16px;height:16px}
+
+.btn{width:100%;padding:12px 14px;border-radius:10px;border:0;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white;font-weight:600;font-size:15px;cursor:pointer;box-shadow:0 8px 28px rgba(6,182,212,0.08);}
+.btn:active{transform:translateY(1px)}
+
+.or{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:13px}
+.or::before,.or::after{content:'';flex:1;height:1px;background:rgba(255,255,255,0.03);border-radius:2px}
+
+.socials{display:flex;gap:8px}
+.social-btn{flex:1;padding:10px 8px;border-radius:10px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);display:flex;align-items:center;justify-content:center;gap:8px;font-weight:600;cursor:pointer}
+
+.help-links{display:flex;justify-content:center;margin-top:8px;gap:16px;font-size:13px;color:var(--muted)}
+.small{font-size:13px;color:var(--muted)}
+.legal{margin-top:14px;font-size:12px;color:var(--muted);text-align:center}
+.error{color:var(--danger);font-size:13px}
+.success{color:var(--success);font-size:13px}
+
+@media (max-width:420px){body{padding:18px}.container{padding:18px}}
+
+  </style>
+</head>
+<body>
+  <main class="container" role="main" aria-labelledby="login-heading">
+    <header class="header">
+      <div class="logo" aria-hidden="true">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="8" y="8" width="48" height="48" rx="10" fill="white" opacity="0.12"/>
+          <path d="M20 40 L32 20 L44 40 Z" fill="white" opacity="0.98"/>
+        </svg>
+      </div>
+      <div class="brand">
+        <h1 id="login-heading">Sign in to Your App</h1>
+        <p>Secure access to your workspace</p>
+	  </div>
+    </header><form id="loginForm" novalidate method="post" action="/login">
+  <div class="field">
+    <label for="email">Email</label>
+    <input id="email" name="email" type="email" inputmode="email" autocomplete="username" required aria-required="true" placeholder="you@company.com">
+    <div id="emailError" class="error" aria-live="polite" style="display:none"></div>
+  </div>
+
+  <div class="field">
+    <div class="row" style="justify-content:space-between;align-items:flex-end">
+      <div style="flex:1">
+        <label for="password">Password</label>
+      </div>
+      <div class="small"><a href="#" id="forgotLink">Forgot?</a></div>
+    </div>
+
+    <div class="password-row">
+      <input id="password" name="password" type="password" autocomplete="current-password" required aria-required="true" placeholder="Enter your password" style="flex:1">
+      <button type="button" class="pw-toggle" id="togglePw" aria-pressed="false" aria-label="Show password">Show</button>
+    </div>
+    <div id="pwError" class="error" aria-live="polite" style="display:none"></div>
+  </div>
+
+  <div class="row" style="justify-content:space-between">
+    <label class="checkbox"><input type="checkbox" id="remember" name="remember"><span class="small">Remember me</span></label>
+    <div></div>
+  </div>
+
+  <div>
+    <button type="submit" class="btn" id="submitBtn">Sign in</button>
+  </div>
+
+  <div class="or">Or continue with</div>
+
+  <div class="socials" role="group" aria-label="Social sign-in options">
+    <button type="button" class="social-btn" id="googleBtn">Google</button>
+    <button type="button" class="social-btn" id="githubBtn">GitHub</button>
+  </div>
+
+  <p class="legal">By continuing you agree to our <a href="#">Terms</a> and <a href="#">Privacy Policy</a>.</p>
+
+  <div id="statusMsg" aria-live="polite" style="margin-top:10px"></div>
+</form>
+
+  </main>  <script>
+    (function(){
+      const form = document.getElementById('loginForm');
+      const email = document.getElementById('email');
+      const password = document.getElementById('password');
+      const toggle = document.getElementById('togglePw');
+      const emailError = document.getElementById('emailError');
+      const pwError = document.getElementById('pwError');
+      const status = document.getElementById('statusMsg');
+      const submitBtn = document.getElementById('submitBtn');
+
+      toggle.addEventListener('click', ()=>{
+        const isShown = password.type === 'text';
+        password.type = isShown ? 'password' : 'text';
+        toggle.textContent = isShown ? 'Show' : 'Hide';
+        toggle.setAttribute('aria-pressed', String(!isShown));
+        password.focus();
+      });
+
+      function validateEmail(v){
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+      }
+
+      form.addEventListener('submit', async (e)=>{
+        e.preventDefault();
+        emailError.style.display = 'none'; pwError.style.display = 'none'; status.textContent = '';
+
+        let ok = true;
+        if(!validateEmail(email.value.trim())){
+          emailError.style.display = 'block';
+          emailError.textContent = 'Please enter a valid email address.';
+          ok = false;
+        }
+        if(password.value.length < 8){
+          pwError.style.display = 'block';
+          pwError.textContent = 'Password must be at least 8 characters.';
+          ok = false;
+        }
+
+        if(!ok) return;
+
+        submitBtn.disabled = true; submitBtn.textContent = 'Signing in...';
+
+        try{
+          const payload = {email: email.value.trim(), password: password.value, remember: document.getElementById('remember').checked};
+
+          await new Promise(r=>setTimeout(r,800));
+          const success = true;
+
+          if(success){
+            status.textContent = '';
+            const msg = document.createElement('div'); msg.className='success'; msg.textContent='Signed in successfully (demo). Redirecting...';
+            status.appendChild(msg);
+            alert('Login Successfully');
+          } else {
+            throw new Error('Invalid credentials');
+          }
+
+        }catch(err){
+          status.textContent = '';
+          const msg = document.createElement('div'); msg.className='error'; msg.textContent = err.message || 'Sign-in failed. Try again.';
+          status.appendChild(msg);
+        }finally{
+          submitBtn.disabled = false; submitBtn.textContent = 'Sign in';
+        }
+      });
+
+      document.getElementById('googleBtn').addEventListener('click', ()=>{window.location.href = '/auth/google'});
+      document.getElementById('githubBtn').addEventListener('click', ()=>{window.location.href = '/auth/github'});
+
+      email.addEventListener('invalid', ()=>{emailError.style.display='block'; emailError.textContent='Please provide your email.'});
+      password.addEventListener('invalid', ()=>{pwError.style.display='block'; pwError.textContent='Please enter your password.'});
+    })();
+  </script></body>
+</html>
