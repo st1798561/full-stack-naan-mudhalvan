@@ -1,66 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Register</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous"/>
-  <style>
-    @import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: Raleway, sans-serif; }
-    body { background: linear-gradient(90deg, #C7C5F4, #776BCC); }
-    .container { display: flex; align-items: center; justify-content: center; min-height: 100vh; }
-    .screen { background: linear-gradient(90deg, #5D54A4, #7C78B8); position: relative; height: 600px; width: 360px; box-shadow: 0px 0px 24px #5C5696; }
-    .screen__content { z-index: 1; position: relative; height: 100%; }
-    .screen__background { position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 0; }
-    .screen_background_shape { transform: rotate(45deg); position: absolute; }
-    .screen_background_shape1 { height: 520px; width: 520px; background: #FFF; top: -50px; right: 120px; border-radius: 0 72px 0 0; }
-    .screen_background_shape2 { height: 220px; width: 220px; background: #6C63AC; top: -172px; right: 0; border-radius: 32px; }
-    .screen_background_shape3 { height: 540px; width: 190px; background: linear-gradient(270deg, #5D54A4, #6A679E); top: -24px; right: 0; border-radius: 32px; }
-    .screen_background_shape4 { height: 400px; width: 200px; background: #7E7BB9; top: 420px; right: 50px; border-radius: 60px; }
-    .register { width: 320px; padding: 30px; padding-top: 120px; }
-    .register h2 { color: #fff; text-align: center; margin-bottom: 20px; }
-    .register__field { padding: 20px 0px; position: relative; }
-    .register__icon { position: absolute; top: 30px; color: #7875B5; left: 0; padding-left: 6px; }
-    .register__input { border: none; border-bottom: 2px solid #D1D1D4; background: none; padding: 10px; padding-left: 36px; font-weight: 700; width: 100%; transition: .2s; color: #fff; }
-    .register__input::placeholder { color: rgba(255,255,255,0.75); font-weight: 600; }
-    .register__input:focus { outline: none; border-bottom-color: #6A679E; }
-    .register__submit { background: #fff; font-size: 14px; margin-top: 30px; padding: 16px 20px; border-radius: 26px; border: 1px solid #D4D3E8; text-transform: uppercase; font-weight: 700; display: flex; align-items: center; width: 100%; color: #4C489D; box-shadow: 0px 2px 2px #5C5696; cursor: pointer; transition: .2s; }
-    .button__icon { font-size: 18px; margin-left: auto; color: #7875B5; }
-    .footer-link { text-align: center; margin-top: 20px; }
-    .footer-link a { color: #fff; text-decoration: underline; font-size: 14px; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SBG Books</title>
+    <link rel="icon"  href="WhatsApp Image 2025-07-21 at 5.03.02 AM.jpeg">
+    <link rel="stylesheet" href="style.css">
+    <link  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <style>body {
+      background-color: black;
+      color: white;
+    }
+    .form-container {
+      max-width: 400px;
+      margin: 80px auto;
+      background-color: #111;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px cyan;
+    }
+    .form-control {
+      background-color: #222;
+      border: 1px solid cyan;
+      color: white;
+    }
+    .form-control::placeholder {
+      color: cyan;
+    }
+    .btn-outline-cyan {
+      border: 2px solid cyan;
+      color: cyan;
+      width: 100%;
+    }
+    .btn-outline-cyan:hover {
+      background-color: cyan;
+      color: black;
+      border-color: cyan;
+    }
+    a {
+      color: cyan;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }</style>
 </head>
 <body>
-  <div class="container">
-    <div class="screen">
-      <div class="screen__content">
-        <form class="register" method="post" action="/users">
-          <h2>Create Account</h2>
-          <div class="register__field">
-            <i class="register__icon fas fa-user"></i>
-            <input type="text" name="user_name" class="register__input" placeholder="User name / Email" />
-          </div>
-          <div class="register__field">
-            <i class="register__icon fas fa-lock"></i>
-            <input type="password" name="password" class="register__input" placeholder="Password" />
-          </div>
-          <button type="submit" class="button register__submit">
-            <span class="button__text">Register</span>
-            <i class="button__icon fas fa-chevron-right"></i>
-          </button>
-          <div class="footer-link">
-            <a href="/login">Already have an account? Login</a>
-          </div>
-        </form>
-      </div>
-      <div class="screen__background">
-        <span class="screen_backgroundshape screenbackground_shape4"></span>
-        <span class="screen_backgroundshape screenbackground_shape3"></span>
-        <span class="screen_backgroundshape screenbackground_shape2"></span>
-        <span class="screen_backgroundshape screenbackground_shape1"></span>
-      </div>
-    </div>
+    <nav class="navbar px-3">
+  <button class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
+  <a class="navbar-brand mx-3" href="#">SBG Books</a>
+  <div class="ms-auto navbar-icons">
+    <a href="#"><i class="fas fa-heart"></i></a>
+    <a href="#"><i class="fas fa-shopping-cart"></i></a>
+    <a href="sign.html"><i class="fas fa-user"></i></a>
   </div>
+</nav>
+<div class="side-menu" id="sideMenu">
+  <h5 class="mb-4">Menu</h5>
+  <a href="main.html">Home</a>
+
+  <div class="dropdown">
+    <a class="dropdown-toggle" href="#" data-bs-toggle="dropdown">Categories</a>
+    <ul class="dropdown-menu dropdown-menu-dark bg-black border-0">
+      <li><a class="dropdown-item text-cyan" href="#">Fiction Books</a></li>
+      <li><a class="dropdown-item text-cyan" href="#">Religious Books</a></li>
+      <li><a class="dropdown-item text-cyan" href="#">Programming Books</a></li>
+    </ul>
+  </div>
+  <a href="coupons.html">Coupons & Offers </a>
+  <a href="aboutus.html">About Us</a>
+  <a href="settings.html">Settings</a>
+  <hr>
+  <a href="contact.html">Contact Us</a>
+  <a href="terms.html">Terms & Conditions</a>
+  <a href="privecy.html">Privacy Policy</a>
+  <a class="btn-outline-custom" href="sign.html">Sign Up</a>
+  <a class="btn-outline-custom" href="login.html">Login</a>
+</div>
+<div id="overlay" onclick="closeMenu()" style="display: none;"></div>
+<a href="https://wa.me/1234567890" class="whatsapp-float" target="_blank">
+  <i class="fab fa-whatsapp"></i> Chat
+</a>
+<div class="form-container">
+    <h2 class="text-center mb-4">Sign Up</h2>
+    <form method="post" action="/users"><div class="mb-3">
+        <label for="text" class="form-label">Full Name</label>
+        <input type="text" class="form-control" id="email" placeholder="Enter Full name" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="email" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter email" required>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Create Password</label>
+        <input type="password" class="form-control" id="password" placeholder="Enter password" required>
+      </div>
+      <button type="submit" class="btn btn-outline-cyan mt-3">Login</button>
+    </form>
+    <p class="text-center mt-3">Already have an account ? <a href="login.html">Log in</a></p>
+  </div>
+<footer>
+  <p>
+    <a href="terms.html">Terms &amp; Conditions</a>
+    &bull;
+    <a href="privecy.html">Privacy Policy</a>
+    &bull;
+    <a href="aboutus.html">About Us</a>
+  </p>
+
+  <hr>
+
+  <p>
+    <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="mailto:you@example.com"><i class="fas fa-envelope"></i></a>
+    <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+  </p>
+
+  <p>&copy; 2025 SBG Books. All rights reserved.</p>
+</footer>
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById("sideMenu");
+    const overlay = document.getElementById("overlay");
+
+    menu.classList.toggle("open");
+    overlay.style.display = menu.classList.contains("open") ? "block" : "none";
+  }
+
+  function closeMenu() {
+    document.getElementById("sideMenu").classList.remove("open");
+    document.getElementById("overlay").style.display = "none";
+  }
+
+  
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>    
 </body>
 </html>

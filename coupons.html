@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SBG Books</title>
+    <link rel="icon"  href="WhatsApp Image 2025-07-21 at 5.03.02 AM.jpeg">
+    <link rel="stylesheet" href="style.css">
+    <link  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
+<style>
+    body {
+      background-color: #f9f9f9;
+      color: #333;
+      font-family: 'Segoe UI', sans-serif;
+    }
+     
+   h1 {
+      text-align: center;
+      color: cyan;
+      margin-top: 20px;
+      animation: glow 2s infinite alternate;
+    }
+    @keyframes glow {
+      from { text-shadow: 0 0 10px cyan; }
+      to { text-shadow: 0 0 20px cyan; }
+    }
+    .coupon-card {
+      background: #111;
+      border: 1px solid cyan;
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+      color: cyan;
+      transition: transform 0.3s;
+    }
+    .coupon-card:hover {
+      transform: scale(1.05);
+    }
+    .coupon-code {
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .use-btn {
+      background: cyan;
+      color: black;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 5px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+
+
+
+  </style>
+<body>
+    <nav class="navbar px-3">
+  <button class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
+  <a class="navbar-brand mx-3" href="#">SBG Books</a>
+  <div class="ms-auto navbar-icons">
+    <a href="#"><i class="fas fa-heart"></i></a>
+    <a href="#"><i class="fas fa-shopping-cart"></i></a>
+    <a href="/register"><i class="fas fa-user"></i></a>
+  </div>
+</nav>
+
+<div class="side-menu" id="sideMenu">
+  <h5 class="mb-4">Menu</h5>
+  <a href="main.html">Home</a>
+
+  <div class="dropdown">
+    <a class="dropdown-toggle" href="#" data-bs-toggle="dropdown">Categories</a>
+    <ul class="dropdown-menu dropdown-menu-dark bg-black border-0">
+      <li><a class="dropdown-item text-cyan" href="#">Fiction Books</a></li>
+      <li><a class="dropdown-item text-cyan" href="#">Religious Books</a></li>
+      <li><a class="dropdown-item text-cyan" href="#">Programming Books</a></li>
+    </ul>
+  </div>
+  <a href="coupons.html">Coupons & Offers </a>
+  <a href="aboutus.html">About Us</a>
+  <a href="settings.html">Settings</a>
+  <hr>
+  <a href="contact.html">Contact Us</a>
+  <a href="terms.html">Terms & Conditions</a>
+  <a href="#">Privacy Policy</a>
+  <a class="btn-outline-custom" href="/register">Sign Up</a>
+  <a class="btn-outline-custom" href="/login">Login</a>
+</div>
+<div id="overlay" onclick="closeMenu()" style="display: none;"></div>
+<a href="https://wa.me/1234567890" class="whatsapp-float" target="_blank">
+  <i class="fab fa-whatsapp"></i> Chat
+</a>
+<br>
+
+<br>
+<br>
+
+
+
+
+
+  <h1>🎯 “Slay the Price Before It Slays You”</h1>
+
+  <!-- Search Bar -->
+<div style="text-align:center; margin: 80px;">
+  <input type="text" id="searchInput" placeholder="Enter the coupon code" 
+         style= "padding:5px 10px; width: 80%; border-radius:5px; border:1px solid cyan; background:#111; color:cyan; outline:none;">
+  <button onclick="searchCoupon()" 
+          style="background:cyan; color:black; border:none; padding:6px 10px; border-radius:5px; cursor:pointer;">
+    <i class="fas fa-search"></i>
+  </button>
+</div>
+
+<script>
+  function searchCoupon() {
+    const input = document.getElementById('searchInput').value.toUpperCase();
+    const cards = document.querySelectorAll('.coupon-card'); // Make sure your coupon cards have this class
+    let found = false;
+    cards.forEach(card => {
+      const code = card.getAttribute('data-code').toUpperCase();
+      if(code.includes(input)) {
+        card.style.display = 'block';
+        found = true;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+    if(!found && input !== '') alert('No coupon found with this code.');
+  }
+</script>
+
+  <div class="container mt-4">
+    <div class="row g-3">
+      <!-- Coupon Template Repeated 12 Times -->
+      <!-- 1 -->
+      <div class="col-md-3">
+        <div class="coupon-card">
+          <p>Welcome Offer</p>
+          <p class="coupon-code" onclick="copyCode('WELCOME10')">WELCOME10</p>
+          <p>Flat 10% OFF +5 Coins</p>
+         <video width="80" height="80" autoplay loop muted style="display:block; margin:0 auto; object-fit:contain;">
+  <source src="WhatsApp Video 2025-10-04 at 8.12.56 PM.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+          <button class="use-btn" onclick="openModal('WELCOME10')">Use</button>
+        </div>
+      </div>
+      <!-- Repeat -->
+      <div class="col-md-3">
+        <div class="coupon-card">
+          <p>First Buy Bonus</p>
+          <p class="coupon-code" onclick="copyCode('FIRSTBUY5')">FIRSTBUY5</p>
+          <p>Save ₹50 +3 Coins</p>
+          <video width="80" height="80" autoplay loop muted style="display:block; margin:0 auto; object-fit:contain;">
+  <source src="WhatsApp Video 2025-10-04 at 8.12.58 PM.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+          <button class="use-btn" onclick="openModal('FIRSTBUY5')">Use</button>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="coupon-card">
+          <p>Buy 2 Get 1 Free</p>
+          <p class="coupon-code" onclick="copyCode('B2G1FREE')">B2G1FREE</p>
+          <p>Free Item +10 Coins</p>
+          <video width="80" height="80" autoplay loop muted style="display:block; margin:0 auto; object-fit:contain;">
+  <source src="WhatsApp Video 2025-10-04 at 8.12.58 PM (1).mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+          <button class="use-btn" onclick="openModal('B2G1FREE')">Use</button>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="coupon-card">
+          <p>Double Bonus Deal</p>
+          <p class="coupon-code" onclick="copyCode('DOUBLEBONUS')">DOUBLEBONUS</p>
+          <p>Extra Rewards +8 Coins</p>
+          <video width="80" height="80" autoplay loop muted style="display:block; margin:0 auto; object-fit:contain;">
+  <source src="WhatsApp Video 2025-10-04 at 8.12.58 PM (2).mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+          <button class="use-btn" onclick="openModal('DOUBLEBONUS')">Use</button>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="coupon-card">
+          <p>MEGAFEST DEAL</p>
+          <p class="coupon-code" onclick="copyCode('MEGAFEST')">MEGAFEST</p>
+          <p>Festive Offer +7 Coins</p>
+          <video width="80" height="80" autoplay loop muted style="display:block; margin:0 auto; object-fit:contain;">
+  <source src="WhatsApp Video 2025-10-04 at 8.12.59 PM.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+          <button class="use-btn" onclick="openModal('MEGAFEST')">Use</button>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="coupon-card">
+          <p>SEASONAL SPARK</p>
+          <p class="coupon-code" onclick="copyCode('SEASONALSPARK')">SEASONALSPARK</p>
+          <p>Festival Boost +9 Coins</p>
+          <video width="80" height="80" autoplay loop muted style="display:block; margin:0 auto; object-fit:contain;">
+  <source src="WhatsApp Video 2025-10-04 at 8.12.59 PM (1).mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+          <button class="use-btn" onclick="openModal('SEASONALSPARK')">Use</button>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="coupon-card">
+          <p>Membership Bonus</p>
+          <p class="coupon-code" onclick="copyCode('MEMBER15')">MEMBER15</p>
+          <p>Exclusive Discount +12 Coins</p>
+          <video width="80" height="80" autoplay loop muted style="display:block; margin:0 auto; object-fit:contain;">
+  <source src="WhatsApp Video 2025-10-04 at 8.12.59 PM (2).mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+          <button class="use-btn" onclick="openModal('MEMBER15')">Use</button>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="coupon-card">
+          <p>VIP ONLY</p>
+          <p class="coupon-code" onclick="copyCode('VIPONLY')">VIPONLY</p>
+          <p>Elite Rewards +15 Coins</p>
+          <video width="80" height="80" autoplay loop muted style="display:block; margin:0 auto; object-fit:contain;">
+  <source src="WhatsApp Video 2025-10-04 at 8.13.00 PM.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+          <button class="use-btn" onclick="openModal('VIPONLY')">Use</button>
+        </div>
+      </div>
+    
+
+      <div class="col-md-3">
+        <div class="coupon-card">
+          <p>Sitewide Blast</p>
+          <p class="coupon-code" onclick="copyCode('SAVAGE25')">SAVAGE25</p>
+          <p>25% OFF +6 Coins</p>
+          <video width="80" height="80" autoplay loop muted style="display:block; margin:0 auto; object-fit:contain;">
+  <source src="WhatsApp Video 2025-10-04 at 8.13.00 PM (1).mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+          <button class="use-btn" onclick="openModal('SAVAGE25')">Use</button>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="coupon-card">
+          <p>Super Deal</p>
+          <p class="coupon-code" onclick="copyCode('SUPERDEAL')">SUPERDEAL</p>
+          <p>Flat ₹100 OFF +4 Coins</p>
+          <video width="80" height="80" autoplay loop muted style="display:block; margin:0 auto; object-fit:contain;">
+  <source src="WhatsApp Video 2025-10-04 at 8.13.00 PM (2).mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+          <button class="use-btn" onclick="openModal('SUPERDEAL')">Use</button>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="coupon-card">
+          <p>Lucky Spin</p>
+          <p class="coupon-code" onclick="copyCode('LUCKYSPIN')">LUCKYSPIN</p>
+          <p>Surprise Gift +5 Coins</p>
+         <video width="80" height="80" autoplay loop muted style="display:block; margin:0 auto; object-fit:contain;">
+  <source src="WhatsApp Video 2025-10-04 at 11.07.12 PM.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+          <button class="use-btn" onclick="openModal('LUCKYSPIN')">Use</button>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="coupon-card">
+          <p>Random Reward</p>
+          <p class="coupon-code" onclick="copyCode('RANDOMREWARD')">RANDOMREWARD</p>
+          <p>Unexpected Bonus +6 Coins</p>
+          <video width="80" height="80" autoplay loop muted style="display:block; margin:0 auto; object-fit:contain;">
+  <source src="WhatsApp Video 2025-10-04 at 11.07.12 PM (1).mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+          <button class="use-btn" onclick="openModal('RANDOMREWARD')">Use</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div id="couponModal" class="modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); color:white; align-items:center; justify-content:center;">
+    <div style="background:#111; padding:20px; border-radius:10px; text-align:center;">
+      <p>To use this coupon, you must be logged in.</p>
+      <button class="use-btn" onclick="closeModal()">No Thanks</button>
+      <button class="use-btn" onclick="window.location.href='login.html'">Login</button>
+      
+    </div>
+  </div>
+
+  <script>
+    function openModal(code) {
+      document.getElementById("couponModal").style.display = "flex";
+    }
+    function closeModal() {
+      document.getElementById("couponModal").style.display = "none";
+    }
+    function copyCode(code) {
+      navigator.clipboard.writeText(code);
+      alert(code + " copied!");
+    }
+  </script>
+  <br>
+  <br>
+  <br>
+
+
+
+
+
+<footer>
+  <p>
+    <a href="terms.html">Terms &amp; Conditions</a>
+    &bull;
+    <a href="privecy.html">Privacy Policy</a>
+    &bull;
+    <a href="aboutus.html">About Us</a>
+  </p>
+
+  <hr>
+
+  <p>
+    <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="mailto:you@example.com"><i class="fas fa-envelope"></i></a>
+    <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+  </p>
+
+  <p>&copy; 2025 SBG Books. All rights reserved.</p>
+</footer>
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById("sideMenu");
+    const overlay = document.getElementById("overlay");
+
+    menu.classList.toggle("open");
+    overlay.style.display = menu.classList.contains("open") ? "block" : "none";
+  }
+
+  function closeMenu() {
+    document.getElementById("sideMenu").classList.remove("open");
+    document.getElementById("overlay").style.display = "none";
+  }
+</script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>  
+</body>
+</html>

@@ -8,44 +8,27 @@
     <link rel="stylesheet" href="style.css">
     <link  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-  <style>body {
-      background-color: black;
-      color: white;
+<style>
+    body {
+      background-color: #f9f9f9;
+      color: #333;
+      font-family: 'Segoe UI', sans-serif;
     }
-    .form-container {
-      max-width: 400px;
-      margin: 80px auto;
-      background-color: #111;
+    .about-container {
+      max-width: 900px;
+      margin: 50px auto;
       padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px cyan;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
     }
-    .form-control {
-      background-color: #222;
-      border: 1px solid cyan;
-      color: white;
+    h1, h2 {
+      color: #0dcaf0; /* Bootstrap cyan */
     }
-    .form-control::placeholder {
-      color: cyan;
+    p {
+      line-height: 1.6;
     }
-    .btn-outline-cyan {
-      border: 2px solid cyan;
-      color: cyan;
-      width: 100%;
-    }
-    .btn-outline-cyan:hover {
-      background-color: cyan;
-      color: black;
-      border-color: cyan;
-    }
-    a {
-      color: cyan;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }</style>
-</head>
+  </style></head>
 <body>
     <nav class="navbar px-3">
   <button class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
@@ -56,6 +39,7 @@
     <a href="sign.html"><i class="fas fa-user"></i></a>
   </div>
 </nav>
+
 <div class="side-menu" id="sideMenu">
   <h5 class="mb-4">Menu</h5>
   <a href="main.html">Home</a>
@@ -68,34 +52,43 @@
       <li><a class="dropdown-item text-cyan" href="#">Programming Books</a></li>
     </ul>
   </div>
-  <a href="coupons.html">Coupons & Offers </a>
+<a href="coupons.html">Coupons & Offers </a>
   <a href="aboutus.html">About Us</a>
   <a href="settings.html">Settings</a>
+  
   <hr>
   <a href="contact.html">Contact Us</a>
   <a href="terms.html">Terms & Conditions</a>
   <a href="privecy.html">Privacy Policy</a>
-  <a class="btn-outline-custom" href="sign.html">Sign Up</a>
-  <a class="btn-outline-custom" href="login.html">Login</a>
+  <a class="btn-outline-custom" href="/register">Sign Up</a>
+  <a class="btn-outline-custom" href="/login">Login</a>
 </div>
 <div id="overlay" onclick="closeMenu()" style="display: none;"></div>
 <a href="https://wa.me/1234567890" class="whatsapp-float" target="_blank">
   <i class="fab fa-whatsapp"></i> Chat
 </a>
-<div class="form-container">
-    <h2 class="text-center mb-4">Login</h2>
-    <form method="post" action="/login">
-      <div class="mb-3">
-        <label for="email" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="email" placeholder="Enter email" required>
-      </div>
-      <div class="mb-3">
-        <label for="password" class="form-label">Password</label>
-        <input type="password" class="form-control" id="password" placeholder="Enter password" required>
-      </div>
-      <button type="submit" class="btn btn-outline-cyan mt-3">Login</button>
-    </form>
-    <p class="text-center mt-3">Don't have an account? <a href="sign.html">Sign Up</a></p>
+
+<div class="container about-container">
+    <h1 class="mb-4">About Us</h1>
+
+    <p>Welcome to <strong>Our Store</strong> – your trusted destination for high-quality products and a seamless shopping experience.</p>
+
+    <h2>Our Mission</h2>
+    <p>To provide customers with the best value, quality, and service. We aim to create a hassle-free shopping platform that prioritizes user satisfaction.</p>
+
+    <h2>Why Choose Us?</h2>
+    <ul>
+      <li>Curated selection of top-quality items</li>
+      <li>Fast and secure checkout process</li>
+      <li>Responsive customer support</li>
+      <li>Transparent pricing and deals</li>
+    </ul>
+
+    <h2>Our Team</h2>
+    <p>We are a group of passionate individuals dedicated to creating a better way to shop online. From design and development to customer support, our team works hard to bring you the best experience.</p>
+
+    <h2>Contact Us</h2>
+    <p>If you have any questions, suggestions, or feedback, feel free to reach out at: <a href="mailto:support@example.com">support@example.com</a>.</p>
   </div>
 <footer>
   <p>
@@ -129,9 +122,7 @@
     document.getElementById("sideMenu").classList.remove("open");
     document.getElementById("overlay").style.display = "none";
   }
-
-  
 </script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>    
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>  
 </body>
 </html>

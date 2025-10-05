@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+      <title>SBG Books</title>
+  <link rel="icon"  href="WhatsApp Image 2025-07-21 at 5.03.02 AM.jpeg">
+  <style>
+  :root{
+    --cyan: #00FFFF;
+    --black: #000000;
+  }
+
+  
+  html,body{
+    height:100%;
+    margin:0;
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    background-image: url('WhatsApp Image 2025-10-04 at 8.12.35 PM.jpeg'); /* <-- Put your image here or change filename */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color: var(--cyan);
+  }
+
+ 
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background: rgba(0,0,0,0.35); /* only black */
+    pointer-events:none;
+  }
+
+.shop-header {
+  position: relative; /* changed from absolute */
+  margin-bottom: 40px; /* adds spacing below header */
+  text-align: center;
+  z-index: 2;
+  animation: fadeInSlideDown 1.2s ease forwards;
+}
+
+.shop-logo {
+  width: 100px;
+  height: auto;
+  max-height: 100px;
+  border-radius: 14px;
+  object-fit: contain; 
+  box-shadow: 0 0 25px rgba(0,255,255,0.6), 0 0 35px rgba(0,255,255,0.3);
+  animation: logoPulse 3s infinite ease-in-out;
+}
+
+
+.shop-title {
+  margin-top: 10px;
+  font-size: 2.5rem;
+  color: var(--cyan);
+  text-shadow: 0 0 20px rgba(0,255,255,0.6), 0 0 30px rgba(0,255,255,0.4);
+  font-weight: bold;
+  letter-spacing: 2px;
+  animation: neonText 2s ease-in-out infinite alternate;}
+  
+  .page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;}
+
+
+
+
+
+@keyframes fadeInSlideDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes neonText {
+  0% { text-shadow: 0 0 10px rgba(0,255,255,0.3); }
+  100% { text-shadow: 0 0 20px rgba(0,255,255,0.8), 0 0 40px rgba(0,255,255,0.6); }
+}
+
+@keyframes logoPulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 25px rgba(0,255,255,0.6); }
+  50% { transform: scale(1.05); box-shadow: 0 0 35px rgba(0,255,255,0.8); }
+}
+
+
+@media (max-width: 420px) {
+  .shop-logo {
+    width: 70px;
+    max-height: 70px;
+  }
+
+  .shop-title {
+    font-size: 1.8rem;
+  }
+
+  .shop-header {
+    margin-bottom: 30px;
+  }
+}
+
+
+
+ 
+
+ 
+  .wrapper{
+    position:relative;
+    z-index:1;
+    width:92%;
+    max-width:480px;
+    padding: 20px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+ 
+  .glass {
+    position:relative;
+    width:100%;
+    border-radius:14px;
+    padding:28px 22px;
+    text-align:center;
+    color:var(--cyan);
+    background: linear-gradient(180deg, rgba(0,0,0,0.06), rgba(0,0,0,0.06)); /* fully transparentish - respects "transparent" requirement */
+    /* For browsers that support backdrop-filter, adds blur glass effect */
+    backdrop-filter: blur(6px) saturate(120%);
+    -webkit-backdrop-filter: blur(6px) saturate(120%);
+    border: 2px solid rgba(0,255,255,0.08); /* subtle fallback border */
+    overflow:visible;
+    /* entrance + float animations */
+    animation: slideIn 700ms cubic-bezier(.2,.9,.2,1);
+  }
+
+  /* Neon animated border (pseudo element) */
+  .glass::before{
+    content:"";
+    position:absolute;
+    inset:-4px;
+    border-radius:18px;
+    pointer-events:none;
+    background: linear-gradient(90deg, rgba(0,255,255,0.06), rgba(0,255,255,0.12));
+    box-shadow: 0 0 18px rgba(0,255,255,0.12), 0 0 28px rgba(0,255,255,0.06);
+    filter: blur(8px);
+    mix-blend-mode: screen;
+    opacity:0.9;
+    animation: neonPulse 2.6s linear infinite;
+  }
+
+  /* sharp border on top for better neon edge */
+  .glass::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:14px;
+    pointer-events:none;
+    border:2px solid rgba(0,255,255,0.6);
+    box-shadow: 0 0 10px rgba(0,255,255,0.45);
+    mix-blend-mode: screen;
+    animation: edgeGlow 2.6s linear infinite;
+  }
+
+  /* Heading */
+  .glass h1{
+    margin:0 0 10px 0;
+    font-size:1.35rem;
+    letter-spacing:0.6px;
+    line-height:1.1;
+    text-shadow: 0 0 12px rgba(0,255,255,0.18);
+  }
+
+  /* Subtext */
+  .glass p{
+    margin: 6px 0 18px 0;
+    font-size:0.98rem;
+    opacity:0.95;
+    color:var(--cyan);
+  }
+
+  /* Card inside decorative square (a small accent square left of heading) */
+  .accent-square{
+    width:60px;
+    height:60px;
+    margin:0 auto 14px auto;
+    border-radius:8px;
+    border:2px solid var(--cyan);
+    box-shadow: 0 0 18px rgba(0,255,255,0.12);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transform:translateY(-6px);
+    background: rgba(0,0,0,0.06);
+    backdrop-filter: blur(4px);
+  }
+
+  .accent-square svg{ width:36px; height:36px; display:block; }
+
+  /* Login button */
+  .btn {
+    display:inline-block;
+    border-radius:8px;
+    padding:12px 26px;
+    font-weight:600;
+    font-size:1rem;
+    border:none;
+    cursor:pointer;
+    background:var(--cyan);
+    color:var(--black);
+    box-shadow: 0 0 18px rgba(0,255,255,0.35), 0 6px 18px rgba(0,0,0,0.45);
+    transition: transform .18s ease, box-shadow .18s ease, background .18s;
+    transform-origin:center;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    animation: btnPulse 2.8s infinite;
+  }
+
+  .btn:focus{ box-shadow: 0 0 28px rgba(0,255,255,0.45); }
+
+  /* hover grows and inverts to black bg with cyan border */
+  .btn:hover{
+    transform: scale(1.06);
+    background:var(--black);
+    color: var(--cyan);
+    box-shadow: 0 0 30px rgba(0,255,255,0.65), 0 10px 30px rgba(0,0,0,0.55);
+    border: 2px solid var(--cyan);
+  }
+
+  /* small hint under button */
+  .hint{
+    margin-top:12px;
+    font-size:0.86rem;
+    opacity:0.9;
+  }
+
+  /* Animations */
+  @keyframes slideIn {
+    from { transform: translateY(-18px); opacity:0; }
+    to   { transform: translateY(0); opacity:1; }
+  }
+
+  @keyframes neonPulse {
+    0%   { box-shadow: 0 0 10px rgba(0,255,255,0.06), 0 0 20px rgba(0,255,255,0.03); opacity:0.85; transform: scale(1); }
+    50%  { box-shadow: 0 0 28px rgba(0,255,255,0.28), 0 0 48px rgba(0,255,255,0.12); opacity:1; transform: scale(1.01); }
+    100% { box-shadow: 0 0 10px rgba(0,255,255,0.06), 0 0 20px rgba(0,255,255,0.03); opacity:0.85; transform: scale(1); }
+  }
+
+  @keyframes edgeGlow {
+    0% { opacity:0.7; filter: blur(6px); }
+    50%{ opacity:1; filter: blur(2px); }
+    100%{ opacity:0.7; filter: blur(6px); }
+  }
+
+  /* floating tiny vertical motion for the whole wrapper (slow) */
+  @keyframes floatY {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-8px); }
+    100% { transform: translateY(0); }
+  }
+  /* apply gentle float with delay so slideIn still visible */
+  .wrapper{ animation: floatY 6s ease-in-out infinite; }
+
+  /* button glow/pulse */
+  @keyframes btnPulse {
+    0% { box-shadow: 0 0 12px rgba(0,255,255,0.28); transform:translateY(0) scale(1); }
+    50%{ box-shadow: 0 0 28px rgba(0,255,255,0.45); transform:translateY(-2px) scale(1.01); }
+    100%{ box-shadow: 0 0 12px rgba(0,255,255,0.28); transform:translateY(0) scale(1); }
+  }
+
+  /* Responsive tweaks */
+  @media (max-width:420px){
+    .glass{ padding:20px; border-radius:12px; }
+    .accent-square{ width:48px; height:48px; }
+    .glass h1{ font-size:1.1rem; }
+    .btn{ padding:10px 20px; font-size:0.98rem; border-radius:7px; }
+  }
+
+</style>
+</head>
+<body>
+
+  <div class="page-container">
+  <header class="shop-header">
+    <img src="WhatsApp Image 2025-10-04 at 8.26.11 PM.jpeg" alt="SBG Books Logo" class="shop-logo">
+    <h1 class="shop-title">SBG Books</h1>
+  </header>
+
+ 
+
+
+
+
+  <div class="wrapper" aria-live="polite">
+
+   
+
+
+   
+    <div class="glass" role="region" aria-label="shopping-cart-box">
+
+    
+     <br>
+     
+      <div class="accent-square" aria-hidden="true">
+       
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" style="color:var(--cyan)">
+          <path d="M3 7h15l-1.4 7.2A2 2 0 0 1 14.7 16H8.3a2 2 0 0 1-1.9-1.8L4 3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+          <circle cx="10" cy="20" r="1.2" fill="currentColor"></circle>
+          <circle cx="17" cy="20" r="1.2" fill="currentColor"></circle>
+        </svg>
+      </div>
+
+       <h1>Welcome to our Shopping Cart</h1>
+      <p>Exclusive coupons & savings await you. Login for more info.</p>
+
+      <button class="btn" onclick="goToLogin()" aria-label="Login to view coupons">
+        Login
+      </button>
+
+      <div class="hint" aria-hidden="true">Tap login to view coupons & complete purchase</div>
+    </div>
+  </div>
+
+<script>
+  function goToLogin(){
+    // update this to point to your login page file
+    window.location.href = 'main.html';
+  }
+</script>
+</body>
+</html>
